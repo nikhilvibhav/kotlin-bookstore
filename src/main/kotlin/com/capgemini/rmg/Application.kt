@@ -7,8 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
  * @author Nikhil Vibhav
  */
 @SpringBootApplication
-class Application
-
-fun main(args: Array<String>) {
-    SpringApplication.run(Application::class.java, *args)
+open class Application {
+    companion object {
+        @JvmStatic fun main(args: Array<String>) {
+            SpringApplication.run(Application::class.java, *args)
+        }
+    }
 }
