@@ -49,10 +49,10 @@ class KotlinBookstoreServiceRoute : AbstractKotlinBookstoreRoute() {
     @Value("\${add.book.resource.path:/add}")
     private lateinit var addBookResourcePath: String
 
-    @Value("\${add.book.resource.path:/delete}")
+    @Value("\${delete.book.resource.path:/delete}")
     private lateinit var deleteBookResourcePath: String
 
-    @Value("\${add.book.resource.path:/sell}")
+    @Value("\${sell.book.resource.path:/sell}")
     private lateinit var sellBookResourcePath: String
 
     override fun configure() {
