@@ -4,7 +4,6 @@ import com.capgemini.archaius.spring.ArchaiusBridgePropertyPlaceholderConfigurer
 import org.apache.camel.CamelContext
 import org.apache.camel.component.properties.PropertiesComponent
 import org.apache.camel.spring.boot.CamelContextConfiguration
-import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Bean
@@ -15,6 +14,8 @@ import org.springframework.core.io.FileSystemResource
 import org.springframework.core.io.Resource
 
 /**
+ * Configuration class for Kotlin Bookstore Service
+ *
  * @author Nikhil Vibhav
  */
 @Configuration
@@ -24,7 +25,7 @@ open class KotlinBookstoreConfig {
     @Autowired
     lateinit var camelContext: CamelContext
 
-    val LOGGER: Logger = LoggerFactory.getLogger(KotlinBookstoreConfig::class.java)
+    private val LOGGER = LoggerFactory.getLogger(KotlinBookstoreConfig::class.java)
 
     @Bean
     open fun contextConfiguration(): CamelContextConfiguration {
@@ -34,6 +35,7 @@ open class KotlinBookstoreConfig {
                         "file:config/env.properties")
                 val propertiesComponent = PropertiesComponent()
                 propertiesComponent.setLocations(configLocations)
+                context.addComponent("properties", propertiesComponent)
                 LOGGER.info("Added properties component to camel context.")
 
                 if (context.isAllowUseOriginalMessage) {
@@ -67,8 +69,7 @@ open class KotlinBookstoreConfig {
                 FileSystemResource("config/env.properties"),
                 FileSystemResource("config/hystrix.properties"),
                 FileSystemResource("config/metrics.properties"),
-                FileSystemResource("config/application.properties"),
-                FileSystemResource("config/postcode-mapping.properties")))
+                FileSystemResource("config/application.properties")))
 
         LOGGER.info("Camel Archaius Bridge Property Placeholder is configured successfully.")
 

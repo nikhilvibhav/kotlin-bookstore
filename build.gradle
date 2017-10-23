@@ -63,6 +63,7 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-web:$spring_boot_version"
     compile "org.springframework.boot:spring-boot-starter-jetty:$spring_boot_version"
     compile "org.springframework.boot:spring-boot-starter-actuator:$spring_boot_version"
+    compile "org.springframework.boot:spring-boot-starter-data-mongodb:$spring_boot_version"
 
     compile "org.apache.camel:camel-spring-boot:$camel_version"
     compile "org.apache.camel:camel-servlet:$camel_version"
@@ -78,6 +79,12 @@ dependencies {
     compile "com.capgemini:codahale-metrics-filters:0.11.0"
     compile "com.capgemini:springboot-camel-metrics-publisher:0.12.0"
     compile "com.capgemini:archaius-spring-adapter:0.10.2"
+    compile "com.capgemini:spring-profiles:0.12.0"
+    compile "com.capgemini:apache-httpclient-extensions:0.9.0"
+    compile "com.capgemini:camel-exception-handlers:0.11.0"
+    compile "com.capgemini:camel-exceptions-core:0.10.0"
+    compile "com.capgemini:camel-exceptions-data:0.9.0"
+    compile "com.capgemini:circuit-broken-camel-rest-client:0.11.0"
 
     testCompile "junit:junit:4.12"
     testCompile "org.springframework.boot:spring-boot-starter-test:$spring_boot_version"
