@@ -36,12 +36,6 @@ open class Application {
 
     private val LOGGER = LoggerFactory.getLogger(Application::class.java)
 
-    companion object {
-        @JvmStatic fun main(args: Array<String>) {
-            SpringApplication.run(Application::class.java, *args)
-        }
-    }
-
     @Bean
     open fun camelHttpServletRegistration(): ServletRegistrationBean {
         val camelHttpServlet = CamelHttpTransportServlet()
@@ -86,4 +80,8 @@ open class Application {
         }
         return url
     }
+}
+
+fun main(args: Array<String>) {
+    SpringApplication.run(Application::class.java, *args)
 }
